@@ -10,6 +10,8 @@ const card_article = document.getElementById('card-article');
 
 const button1 = document.getElementById('btn1');
 const button2 = document.getElementById('btn2');
+const button3 = document.getElementById('btn3');
+const button4 = document.getElementById('btn4');
 const body = document.getElementById('body');
 const home = document.getElementById('home');
 const about = document.getElementById('about');
@@ -163,6 +165,8 @@ button2.addEventListener('click',event =>{
 
     button1.style.background="white";
     button1.style.color="black";
+
+    
 
     j.style.color="black"
     home.style.backgroundColor="white";
