@@ -285,6 +285,23 @@ z-index: 0;
     height: 55px;
     transition: all 0.3s;
 }
+.contact button{
+        cursor: pointer;
+        text-decoration: none;
+        background-color: white;
+        padding: 5px 10px;
+        border-radius: 35px;
+        font-family:Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 0.8em;
+        max-width: 100px;
+        margin-bottom: 1%;
+}
+.contact button:hover{
+    transition: all 0.3s ease 0.1s;
+    background-color: black;
+    color: white;
+}
 
 @media only screen and (max-width: 600px) {
     .home{
@@ -434,6 +451,19 @@ z-index: 0;
 }
 .doc div{
     margin-bottom: 2%;
+}
+
+.contact button{
+    cursor: pointer;
+    text-decoration: none;
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 35px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    max-width: 100px;
+    margin-bottom: 1%;
 }
 
   }
