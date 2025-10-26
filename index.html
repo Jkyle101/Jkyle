@@ -13,6 +13,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link rel="icon" href="logo.png" type="image/x-icon">
+        <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
         <title>Jkyle Portfolio</title>
 </head>
 <body id="body">
@@ -53,6 +57,7 @@
                 with my beloved girlfriend.</p>
         </div>
     </section>
+    
     <section class="skills"  id="skills">
         <h1 id="skills1" data-aos="fade-up">MY SKILLS</h1>
         <div class="logo-slide" data-aos="fade-up" id="ll1">
@@ -105,18 +110,18 @@
             <img src="skills\Python.svg" alt="">
         </div>-->
     </section>
-    <section class="projects" id="project">
+    <section class="projects" >
         
         <div class="container">
             <h1 class="title" id="projects" data-aos="fade-up" data-aos-delay="300">PROJECTS</h1>
             <div class="card-container">
 
                 <article class="card-article" id="card-article" >
-                    <img src="projects/p1.png" alt="image" class="img-card" data-aos="fade-up-right">
+                    <img src="projects/p1.png" alt="image" class="img-card" data-aos="fade-up-right" id="project">
                     <div class="card-data" id="card-data"data-aos="fade-left">
                         <h2 class="cardtitle" id="l1">Amenity</h2>
                         <span class="card-description" id="cd1">
-                            <img src="skills\Java.svg" alt="">
+                            <img src="skills\Java.svg" alt="">   
                             <img src="skills\MySQL Logo.svg" alt="">
                         </span>
                         <span class="card-description" style="display: none;" id="cdi1">
@@ -242,7 +247,60 @@
 
         </div>
     </section>
-
+    <section class="gallery-section" id="gallery-section">
+        <h2 class="gallery-title">My Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/img1.jpg" alt="Photo 1"></div>
+          <div class="gallery-item"><img src="images/img2.jpg" alt="Photo 2"></div>
+          <div class="gallery-item"><img src="images/img3.jpg" alt="Photo 3"></div>
+          <div class="gallery-item"><img src="images/img4.jpg" alt="Photo 4"></div>
+          <div class="gallery-item"><img src="images/img5.jpg" alt="Photo 5"></div>
+          <div class="gallery-item"><img src="images/img6.jpg" alt="Photo 6"></div>
+        </div>
+      </section>
+      
+    <section class="video-carousel" id="video-carousel">
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <!-- Slide 1 -->
+            <div class="carousel-slide active">
+              <div class="video-bg">
+                <video src="videos/v1.mp4" autoplay loop muted></video>
+              </div>
+              <video class="main-video" controls>
+                <source src="videos/v1.mp4" type="video/mp4" />
+              </video>
+            </div>
+      
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+              <div class="video-bg">
+                <video src="videos/v2.mp4" autoplay loop muted></video>
+              </div>
+              <video class="main-video" controls>
+                <source src="videos/v2.mp4" type="video/mp4" />
+              </video>
+            </div>
+      
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+              <div class="video-bg">
+                <video src="videos/v3.mp4" autoplay loop muted></video>
+              </div>
+              <video class="main-video" controls>
+                <source src="videos/v3.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+      
+          <!-- Controls -->
+          <button class="carousel-btn prev">❮</button>
+          <button class="carousel-btn next">❯</button>
+        </div>
+      </section>
+      
+      
+      
     <section class="contact"  id="contacts" data-aos="fade-down">
         <div data-aos="fade-down">
             <h1 id="contact">Contact Me</h1>
@@ -277,7 +335,7 @@
             <a href="resume.pdf" target="_blank"><button>Resume</button></a>
             </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <!-- On scroll Transition animation -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -287,5 +345,81 @@
    once: true,
  });
 </script>
+<script>
+    const slides = document.querySelectorAll(".carousel-slide");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+    let current = 0;
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+  
+    nextBtn.addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  
+    prevBtn.addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+  </script>
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery-item');
+  
+    function showOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+  
+      galleryItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < triggerBottom) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+    }
+  
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+  <script>
+    // 🌙 DARK MODE TOGGLE SYSTEM
+    const btnDark = document.getElementById('btn1');
+    const btnLight = document.getElementById('btn2');
+    const body = document.body;
+    
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+      btnDark.style.display = 'none';
+      btnLight.style.display = 'inline-block';
+    } else {
+      body.classList.remove('dark-mode');
+      btnLight.style.display = 'none';
+      btnDark.style.display = 'inline-block';
+    }
+    
+    // Enable Dark Mode
+    btnDark.addEventListener('click', () => {
+      body.classList.add('dark-mode');
+      btnDark.style.display = 'none';
+      btnLight.style.display = 'inline-block';
+      localStorage.setItem('theme', 'dark');
+    });
+    
+    // Enable Light Mode
+    btnLight.addEventListener('click', () => {
+      body.classList.remove('dark-mode');
+      btnLight.style.display = 'none';
+      btnDark.style.display = 'inline-block';
+      localStorage.setItem('theme', 'light');
+    });
+    </script>
+    
+  
 </body>
 </html>

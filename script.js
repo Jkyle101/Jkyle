@@ -158,6 +158,8 @@ button1.addEventListener('click',event =>{
     project.style.backgroundColor="black";
     contacts.style.backgroundColor="black";
     body.style.backgroundColor="black";
+    document.body.classList.add('dark-mode');
+
 });
 button2.addEventListener('click',event =>{
     button1.style.display="block";
@@ -226,4 +228,7 @@ button2.addEventListener('click',event =>{
     project.style.backgroundColor="white";
     contacts.style.backgroundColor="white";
     body.style.backgroundColor="white";
+    document.body.classList.remove('dark-mode');
+
+
 });
